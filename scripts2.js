@@ -12,23 +12,13 @@ start.addEventListener('click', function(){
 });
 
 // Global variables
-const input_1 = .1;
-const input_2 = .2;
+const workTimer = prompt("Work Time");
+const breakTimer = prompt("Break Timer");
 const minute = 60000;
-let long_timer = true
-
-// Swaps the timer lengths. Could be called directly from pomodoro?
-function timerLength(input_1, input_2) {
-    if (long_timer === true) {
-        return input_1
-    } else {
-        return input_2
-    }
-}
 
 // Adapted from https://www.w3schools.com/howto/howto_js_countdown.asp
-function pomodoro() {
-    let countDown = new Date().getTime() + (minute * timerLength(input_1, input_2))
+function pomodoro(timer) {
+    let countDown = new Date().getTime() + (minute * timer)
 
     interval = setInterval(function() {
         const now = new Date().getTime();
@@ -36,30 +26,26 @@ function pomodoro() {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        if (difference < 0) {
-            if (long_timer === true) {
-                long_timer = false;
-            }   else {
-                long_timer = true;
-            }
+        if (difference >= 0) {
+            document.getElementById("displayContainer").innerHTML = minutes + "m " + seconds + "s ";
+            console.log(minutes + "m " + seconds + "s ")
+        } else {
             clearInterval(interval);
-            pomodoro();
-        }
-
-        document.getElementById("displayContainer").innerHTML = minutes + "m " + seconds + "s ";
-
         
-    }, 1000);
+            if (timer === workTimer) {
+                pomodoro(breakTimer);
+            } else {
+                pomodoro(workTimer)
+            }     
+        }
+    }, 1);
 }
 
-pomodoro()
    
-
-
-
 function startTimer() {
-    //TODO
+    pomodoro(workTimer) // TODO Kill previous pomodoro function
 }
+
 
 //https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
 // haven't used this at all but curious to compare against current implementation
