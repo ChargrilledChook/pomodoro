@@ -11,7 +11,7 @@ while (running === true) {
         short_timer = true;
         start_time = now.getTime();
         if (long_timer === true) {
-            end_time = start_time + 12000;
+            end_time = start_time + 1200;
             long_timer = false;
         } else {
             end_time = start_time + 6000;

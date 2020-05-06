@@ -8,13 +8,71 @@
 // Event listeners
 const start = document.querySelector('#start')
 start.addEventListener('click', function(){
+    
     startTimer()
+    start.disabled = true;
 });
 
+const stop  = document.querySelector('#stop')
+start.addEventListener('click', function(){
+    //TODO
+});
+
+const pause = document.querySelector('#pause')
+start.addEventListener('click', function(){
+    //TODO
+});
+
+
+const reset = document.querySelector('#reset')
+start.addEventListener('click', function(){
+    //TODO
+});
+
+const workUp = document.querySelector('#workUp')
+workUp.addEventListener('click', function(){
+    workTimer += 1;
+    document.getElementById("workDisplay").innerHTML = workTimer + 'm';
+    document.getElementById("displayContainer").innerHTML = workTimer + 'm'
+});
+
+const workDown = document.querySelector('#workDown')
+workDown.addEventListener('click', function(){
+    if (workTimer > 0){
+        workTimer -= 1;
+    }
+    document.getElementById("workDisplay").innerHTML = workTimer + 'm';
+    document.getElementById("displayContainer").innerHTML = workTimer + 'm'
+});
+
+const breakUp = document.querySelector('#breakUp')
+breakUp.addEventListener('click', function(){
+    breakTimer += 1;
+    document.getElementById("breakDisplay").innerHTML = breakTimer + 'm'
+});
+
+const breakDown = document.querySelector('#breakDown')
+breakDown.addEventListener('click', function(){
+    if (breakTimer > 0){
+        breakTimer -= 1;
+    }
+    document.getElementById("breakDisplay").innerHTML = breakTimer + 'm'
+});
+
+
 // Global variables
-const workTimer = prompt("Work Time");
-const breakTimer = prompt("Break Timer");
+let workTimer = 2;
+let breakTimer = 1;
 const minute = 60000;
+//const running = False;
+
+
+
+document.getElementById("workDisplay").innerHTML = workTimer + 'm';
+document.getElementById("breakDisplay").innerHTML = breakTimer + 'm'
+document.getElementById("displayContainer").innerHTML = workTimer + 'm'
+
+
 
 // Adapted from https://www.w3schools.com/howto/howto_js_countdown.asp
 function pomodoro(timer) {
@@ -40,6 +98,7 @@ function pomodoro(timer) {
         }
     }, 1);
 }
+
 
    
 function startTimer() {
