@@ -1,9 +1,10 @@
 body{
-    background-image: url(hourglass.jpg);
-    height: 600px; 
+    background-image: url(sci-fi-bg.jpg);
+    height: 900px; 
     background-position: center;
     background-repeat: no-repeat; 
-    background-size: cover; 
+    background-size: cover;
+    
 }
 #container{
     display: flex;
@@ -11,13 +12,14 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
+    
 }
 #displayContainer{
     border: 3px solid white;
     height: 200px;
     width: 850px;
     padding: 25px;
-    margin: 0px;
+    margin: 20px;
     font-size: 150px;
     font-family: 'Orbitron', sans-serif;
     background-color: black;
@@ -28,9 +30,14 @@ body{
 button{
     width: 100px;
     height: 40px;
+    font-family: 'Orbitron', sans-serif; 
 }
 .timerSet{
     display: flex;
+    font-family: 'Orbitron', sans-serif;
+    background-color: black;
+    color: white;
+    font-size: larger;
     
 }
 .display{
@@ -38,4 +45,7 @@ button{
     justify-content: center;
     width: 100px;
     height: 40px;
+}
+.controls{
+    margin: 10px;
 }
