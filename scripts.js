@@ -5,6 +5,9 @@
 // Refactor / tidy code
 // Make it prettier
 
+let snd = new Audio('cowMoo.WAV');
+snd.pitch = 3
+
 // Event listeners
 const start = document.querySelector('#start')
 start.addEventListener('click', function(){
@@ -96,6 +99,7 @@ function pomodoro(minuteTimer, secondTimer = 0) {
     let countDown = new Date().getTime() + (minute * minuteTimer) + (second * secondTimer )
     unPause.disabled = true;
     pause.disabled = false;
+    
     if (workUp.disabled === false) {
         deactivateTimeAdjustment()
     }
@@ -146,6 +150,7 @@ function pomodoro(minuteTimer, secondTimer = 0) {
             unPause.disabled = true;
         });
 
+
         if (difference >= 0) {
            display.innerHTML = (hours * 60) + minutes + "m " + seconds + "s ";
             console.log(minutes + "m " + seconds + "s ")
@@ -154,19 +159,17 @@ function pomodoro(minuteTimer, secondTimer = 0) {
             clearInterval(interval);
         
             if (minuteTimer === workTimer) {
-                alert("Break Time!");
+                snd.play();
+                alert('Break Time!')
                 pomodoro(breakTimer);
             } else {
+                snd.play();
                 alert("Work Time!");
                 pomodoro(workTimer)
             }     
         }
     }, 1);
 }
-
-
-   
-
 
 //https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
 // haven't used this at all but curious to compare against current implementation
