@@ -17,19 +17,19 @@ Completed by ChargrilledChook and MotorMouse.
 
 ## Future Updates
 
-Major:
+### Major:
 * Implement a longer break every n breaks
 * Streamline buttons - consolidate pause / unpause into single button
 * Refactor / tidy code
 
-Minor:
+### Minor:
 * Work / break tags to timers and current display
 * Add more text to page - Sci fi flavour text or info about pomodoro technique
 * Add a footer with author details
 * Improve styling / CSS
 * Improve alert SFX
 
-##Version History##
+## Version History
 
 V1 completed and uploaded to Github pages 20/05/2020.
 
